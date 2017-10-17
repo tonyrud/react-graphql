@@ -12,6 +12,11 @@ class SongCreate extends Component {
   onSubmit(event) {
     event.preventDefault()
 
+    this.props.mutate({
+      variables: {
+        title: this.state.title
+      }
+    })
 
   }
 
@@ -31,7 +36,7 @@ class SongCreate extends Component {
   }
 }
 
-const query = gql`
+const mutation = gql`
 mutation AddSong($title: String){
   addSong (title: $title) {
     id
@@ -40,4 +45,4 @@ mutation AddSong($title: String){
 }
 `
 
-export default SongCreate
+export default graphql(mutation)(SongCreate)
