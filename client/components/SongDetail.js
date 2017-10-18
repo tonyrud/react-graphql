@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import gql from "graphql-tag";
 
 class SongDetail extends Component {
   render() {
