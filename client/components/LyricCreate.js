@@ -12,18 +12,13 @@ class LyricCreate extends Component {
 
   onSubmit(event) {
     event.preventDefault()
-    console.log(this.props)
+
     this.props
       .mutate({
         variables: {
           content: this.state.content,
           songId: this.props.songId,
         },
-        // refetchQueries: [
-        //   {
-        //     query: fetchSong,
-        //   },
-        // ],
       })
       this.setState({content: ''})
   }
@@ -48,6 +43,7 @@ mutation AddLyricToSong($content: String, $songId: ID) {
   addLyricToSong(content: $content, songId: $songId ) {
     id
     lyrics {
+      id
       content
     }
   }
